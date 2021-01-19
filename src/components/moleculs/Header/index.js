@@ -9,8 +9,13 @@ import {
 } from 'react-native';
 import {ICMenu, ILHeader} from '../../../assets';
 import {colors} from '../../../config/colors';
+import HeaderSecondary from './HeaderSecondary';
 
-const Header = ({onPress}) => {
+const Header = ({onPress, type, label}) => {
+  if (type === 'Secondary') {
+    return <HeaderSecondary onPress={onPress} label={label} />;
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground source={ILHeader} style={styles.image}>

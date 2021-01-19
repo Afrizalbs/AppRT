@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 18,
-    color: colors.kedua,
+    color: colors.text.kedua,
   },
 });

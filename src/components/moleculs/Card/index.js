@@ -16,7 +16,7 @@ export default Card;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.ketiga,
+    backgroundColor: 'white',
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderBottomWidth: 1,
