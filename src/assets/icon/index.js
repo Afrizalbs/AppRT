@@ -1,3 +1,4 @@
 import ICMenu from './menu.png';
+import ICMenuDark from './menu-dark.png';
 
-export {ICMenu};
+export {ICMenu, ICMenuDark};
