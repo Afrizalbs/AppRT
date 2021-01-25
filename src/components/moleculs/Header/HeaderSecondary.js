@@ -8,7 +8,7 @@ const HeaderSecondary = ({label, onPress}) => {
   return (
     <View style={styles.wrapper}>
       <TouchableOpacity onPress={onPress}>
-        <Image source={ICMenu} style={styles.icon} />
+        <Image source={ICMenuDark} style={styles.icon} />
       </TouchableOpacity>
       <Text style={styles.title}>{label}</Text>
     </View>
@@ -20,11 +20,13 @@ export default HeaderSecondary;
 const styles = StyleSheet.create({
   wrapper: {
     flexDirection: 'row',
-    backgroundColor: colors.utama,
+    backgroundColor: colors.kedua,
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 30,
     paddingRight: 40,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   icon: {
     height: 30,
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     flex: 1,
-    color: colors.text.kedua,
+    color: colors.text.utama,
     textTransform: 'capitalize',
   },
 });

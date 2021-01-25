@@ -1,13 +1,38 @@
 import React from 'react';
-import {StyleSheet, TextInput} from 'react-native';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {Picker} from '@react-native-community/picker';
+import {colors} from '../../../config/colors';
 
-const Input = ({placeholder}) => {
+const Input = ({placeholder, select, selectItem, label}) => {
+  if (select) {
+    return (
+      <View>
+        <Text style={styles.label}>{label}</Text>
+        <View style={styles.picker}>
+          <Picker>
+            {selectItem.map((item) => {
+              return (
+                <Picker.Item
+                  key={item.id}
+                  label={item.label}
+                  value={item.value}
+                />
+              );
+            })}
+          </Picker>
+        </View>
+      </View>
+    );
+  }
   return (
-    <TextInput
-      style={styles.input}
-      placeholder={placeholder}
-      placeholderTextColor="silver"
-    />
+    <>
+      <Text style={styles.label}>{label}</Text>
+      <TextInput
+        style={styles.input}
+        placeholder={placeholder}
+        placeholderTextColor="silver"
+      />
+    </>
   );
 };
 
@@ -18,9 +43,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     borderColor: 'silver',
-    paddingVertical: 7,
-    paddingHorizontal: 10,
-    fontSize: 14,
-    color: 'black',
+    padding: 11,
+    fontSize: 15,
+    color: colors.text.utama,
+  },
+  picker: {
+    borderWidth: 1,
+    borderColor: 'silver',
+    borderRadius: 10,
+    paddingHorizontal: 4,
+    color: colors.text.utama,
+  },
+  label: {
+    fontSize: 16,
+    color: colors.text.utama,
+    marginBottom: 4,
   },
 });

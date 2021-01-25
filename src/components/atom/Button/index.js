@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {colors} from '../../../config/colors';
 
-const Button = () => {
+const Button = ({onPress, label}) => {
   return (
-    <View style={styles.wrapper}>
-      <Text style={styles.label}>Button</Text>
-    </View>
+    <TouchableOpacity style={styles.wrapper} onPress={onPress}>
+      <Text style={styles.label}>{label}</Text>
+    </TouchableOpacity>
   );
 };
 
@@ -14,7 +14,7 @@ export default Button;
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: colors.utama,
+    backgroundColor: colors.kedua,
     height: 45,
     borderRadius: 10,
     display: 'flex',
@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 18,
-    color: colors.text.kedua,
+    color: colors.text.utama,
   },
 });
