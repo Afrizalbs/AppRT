@@ -47,7 +47,7 @@ const TambahData = ({navigation}) => {
         onPress={() => navigation.openDrawer()}
       />
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
-        <Text style={styles.title}>Data Warga Tetap</Text>
+        <Text style={styles.title}>Data Warga Sementara</Text>
         <View style={styles.gap(40)} />
         <Input label="Nama Lengkap sesuai KTP" />
         <View style={styles.gap(25)} />

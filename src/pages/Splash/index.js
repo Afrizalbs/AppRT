@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import {ILLogo} from '../../assets';
 
 const Splash = ({navigation}) => {
   useEffect(() => {
@@ -9,7 +10,8 @@ const Splash = ({navigation}) => {
   });
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>RT 03</Text>
+      <Image source={ILLogo} style={styles.logo} />
+      <Text style={styles.title}>AppRT</Text>
     </View>
   );
 };
@@ -26,5 +28,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: '600',
+  },
+  logo: {
+    width: 86,
+    height: 86,
   },
 });

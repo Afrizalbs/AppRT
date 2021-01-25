@@ -1,19 +1,33 @@
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import React from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import {Card, Header} from '../../components';
+import {StyleSheet, View} from 'react-native';
+import {Header} from '../../components';
 import {colors} from '../../config/colors';
+import DWSementara from '../DWSementara';
+import DWTetap from '../DWTetap';
+
+const Tab = createMaterialTopTabNavigator();
 
 const Home = ({navigation}) => {
   return (
     <View style={styles.page}>
       <Header onPress={() => navigation.openDrawer()} />
       <View style={styles.content}>
-        <Text style={styles.title}>Data Warga Tetap</Text>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <Card />
-          <Card />
-          <Card />
-        </ScrollView>
+        <Tab.Navigator
+          tabBarOptions={{
+            labelStyle: {
+              fontSize: 14,
+              fontWeight: '700',
+              textTransform: 'capitalize',
+            },
+            activeTintColor: colors.text.utama,
+            indicatorStyle: {backgroundColor: colors.text.utama},
+            pressColor: colors.kedua,
+          }}
+          swipeEnabled={false}>
+          <Tab.Screen name="Warga Tetap" component={DWTetap} />
+          <Tab.Screen name="Warga Sementara" component={DWSementara} />
+        </Tab.Navigator>
       </View>
     </View>
   );
@@ -37,7 +51,5 @@ const styles = StyleSheet.create({
     backgroundColor: colors.ketiga,
     flex: 1,
     marginTop: -20,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
   },
 });
