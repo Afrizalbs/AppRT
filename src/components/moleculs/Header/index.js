@@ -11,9 +11,9 @@ import {ICMenu, ILHeader} from '../../../assets';
 import {colors} from '../../../config/colors';
 import HeaderSecondary from './HeaderSecondary';
 
-const Header = ({onPress, type, label}) => {
+const Header = ({onPress, type, label, onBack}) => {
   if (type === 'Secondary') {
-    return <HeaderSecondary onPress={onPress} label={label} />;
+    return <HeaderSecondary onPress={onPress} label={label} onBack={onBack} />;
   }
 
   return (
