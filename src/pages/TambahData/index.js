@@ -7,16 +7,11 @@ const TambahData = ({navigation}) => {
   const [itemGender] = useState([
     {
       id: 1,
-      label: '-',
-      value: null,
-    },
-    {
-      id: 2,
       label: 'Pria',
       value: 'pria',
     },
     {
-      id: 3,
+      id: 2,
       label: 'Wanita',
       value: 'wanita',
     },
@@ -57,13 +52,13 @@ const TambahData = ({navigation}) => {
         <View style={styles.gap(25)} />
         <Input label="Alamat sekarang" />
         <View style={styles.gap(25)} />
-        <Input label="Nomor Telepon" />
+        <Input label="Nomor Telepon" keyboardType="numeric" />
         <View style={styles.gap(25)} />
         <Input label="Pekerjaan" />
         <View style={styles.gap(25)} />
         <Input select selectItem={itemStatus} label="Status" />
         <View style={styles.gap(40)} />
-        <Button label="Tambah" onPress={() => navigation.navigate('Home')} />
+        <Button label="Tambah" onPress={() => {}} />
         <View style={styles.gap(40)} />
       </ScrollView>
     </View>
