@@ -8,26 +8,32 @@ import DWTetap from '../DWTetap';
 
 const Tab = createMaterialTopTabNavigator();
 
+const TabScreen = () => {
+  return (
+    <Tab.Navigator
+      tabBarOptions={{
+        labelStyle: {
+          fontSize: 14,
+          fontWeight: '600',
+          textTransform: 'capitalize',
+        },
+        activeTintColor: '#192a56',
+        indicatorStyle: {backgroundColor: '#192a56'},
+        pressColor: colors.kedua,
+      }}
+      swipeEnabled={false}>
+      <Tab.Screen name="Warga Tetap" component={DWTetap} />
+      <Tab.Screen name="Warga Sementara" component={DWSementara} />
+    </Tab.Navigator>
+  );
+};
+
 const Home = ({navigation}) => {
   return (
     <View style={styles.page}>
       <Header onPress={() => navigation.openDrawer()} />
       <View style={styles.content}>
-        <Tab.Navigator
-          tabBarOptions={{
-            labelStyle: {
-              fontSize: 14,
-              fontWeight: '700',
-              textTransform: 'capitalize',
-            },
-            activeTintColor: colors.text.utama,
-            indicatorStyle: {backgroundColor: colors.text.utama},
-            pressColor: colors.kedua,
-          }}
-          swipeEnabled={false}>
-          <Tab.Screen name="Warga Tetap" component={DWTetap} />
-          <Tab.Screen name="Warga Sementara" component={DWSementara} />
-        </Tab.Navigator>
+        <TabScreen />
       </View>
     </View>
   );
