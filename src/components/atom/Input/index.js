@@ -2,14 +2,30 @@ import React from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import {colors} from '../../../config/colors';
+import {useState} from 'react';
 
-const Input = ({placeholder, select, selectItem, label}) => {
+const Input = ({
+  select,
+  selectItem,
+  label,
+  onChangeText,
+  value,
+  onValueChange,
+  keyboardType,
+}) => {
+  const [border, setBorder] = useState('silver');
+  const onFocusForm = () => {
+    setBorder(colors.kedua);
+  };
+  const onBlurForm = () => {
+    setBorder('silver');
+  };
   if (select) {
     return (
       <View>
         <Text style={styles.label}>{label}</Text>
         <View style={styles.picker}>
-          <Picker>
+          <Picker onValueChange={onValueChange} selectedValue={value}>
             {selectItem.map((item) => {
               return (
                 <Picker.Item
@@ -28,9 +44,12 @@ const Input = ({placeholder, select, selectItem, label}) => {
     <>
       <Text style={styles.label}>{label}</Text>
       <TextInput
-        style={styles.input}
-        placeholder={placeholder}
-        placeholderTextColor="silver"
+        style={styles.input(border)}
+        onChangeText={onChangeText}
+        value={value}
+        onFocus={onFocusForm}
+        onBlur={onBlurForm}
+        keyboardType={keyboardType}
       />
     </>
   );
@@ -39,14 +58,14 @@ const Input = ({placeholder, select, selectItem, label}) => {
 export default Input;
 
 const styles = StyleSheet.create({
-  input: {
+  input: (border) => ({
     borderWidth: 1,
     borderRadius: 10,
-    borderColor: 'silver',
+    borderColor: border,
     padding: 11,
     fontSize: 15,
     color: colors.text.utama,
-  },
+  }),
   picker: {
     borderWidth: 1,
     borderColor: 'silver',
