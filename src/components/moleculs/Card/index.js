@@ -1,14 +1,18 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {color} from 'react-native-reanimated';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {ICNext} from '../../../assets';
 import {colors} from '../../../config/colors';
 
-const Card = () => {
+const Card = ({onPress, nama, alamat}) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.nama}>Alexander Sugiono</Text>
-      <Text style={styles.alamat}>Jl. Gondang Timur Dalam RT03/RW01</Text>
-    </View>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
+      <View>
+        <Text style={styles.nama}>{nama}</Text>
+        <Text style={styles.alamat}>{alamat}</Text>
+      </View>
+
+      <Image source={ICNext} style={styles.icon} />
+    </TouchableOpacity>
   );
 };
 
@@ -21,13 +25,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     borderBottomWidth: 1,
     borderBottomColor: colors.text.kedua,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   nama: {
     fontSize: 16,
     color: colors.text.utama,
+    marginBottom: 4,
+    textTransform: 'capitalize',
   },
   alamat: {
     fontSize: 14,
     color: colors.text.utama,
+  },
+  icon: {
+    height: 24,
+    width: 24,
   },
 });
