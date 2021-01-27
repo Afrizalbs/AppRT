@@ -5,6 +5,7 @@ import OnBoarding from './OnBoarding';
 import DWSementara from './DWSementara';
 import DWTetap from './DWTetap';
 import TambahWargaSementara from './TambahWargaSementara';
+import DetailProfile from './DetailProfile';
 
 export {
   Splash,
@@ -14,4 +15,5 @@ export {
   DWSementara,
   DWTetap,
   TambahWargaSementara,
+  DetailProfile,
 };
