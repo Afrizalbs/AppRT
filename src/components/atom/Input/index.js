@@ -6,11 +6,12 @@ import {useState} from 'react';
 
 const Input = ({
   select,
-  selectItem,
   label,
   onChangeText,
   value,
   onValueChange,
+  selectItem,
+  selectedValue,
   keyboardType,
 }) => {
   const [border, setBorder] = useState('silver');
@@ -25,7 +26,7 @@ const Input = ({
       <View>
         <Text style={styles.label}>{label}</Text>
         <View style={styles.picker}>
-          <Picker onValueChange={onValueChange} selectedValue={value}>
+          <Picker onValueChange={onValueChange} selectedValue={selectedValue}>
             {selectItem.map((item) => {
               return (
                 <Picker.Item
@@ -45,11 +46,11 @@ const Input = ({
       <Text style={styles.label}>{label}</Text>
       <TextInput
         style={styles.input(border)}
-        onChangeText={onChangeText}
-        value={value}
         onFocus={onFocusForm}
         onBlur={onBlurForm}
         keyboardType={keyboardType}
+        onChangeText={onChangeText}
+        value={value}
       />
     </>
   );
