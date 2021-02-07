@@ -3,8 +3,9 @@ import {ScrollView, StyleSheet, View, Alert} from 'react-native';
 import {Button, Header, ProfileItem} from '../../components';
 import {Firebase} from '../../config';
 
-const DetailProfile = ({navigation, route}) => {
+const DetailProfile2 = ({navigation, route}) => {
   const dataWarga = route.params;
+  console.log('data: ', dataWarga);
 
   const deleteData = () => {
     Alert.alert(
@@ -20,7 +21,7 @@ const DetailProfile = ({navigation, route}) => {
           text: 'OK',
           onPress: () =>
             Firebase.database()
-              .ref('warga/' + 'tetap/' + dataWarga.id)
+              .ref('warga/' + 'sementara/' + dataWarga.id)
               .remove()
               .then(() => {
                 navigation.navigate('Home');
@@ -34,7 +35,7 @@ const DetailProfile = ({navigation, route}) => {
     <View style={styles.pages}>
       <Header
         type="Secondary"
-        label="Details"
+        label="Detail Warga Sementara"
         onBack="active"
         onPress={() => navigation.goBack()}
       />
@@ -61,7 +62,7 @@ const DetailProfile = ({navigation, route}) => {
   );
 };
 
-export default DetailProfile;
+export default DetailProfile2;
 
 const styles = StyleSheet.create({
   pages: {
