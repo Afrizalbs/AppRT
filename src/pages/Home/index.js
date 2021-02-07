@@ -17,11 +17,11 @@ const TabScreen = () => {
           fontWeight: '600',
           textTransform: 'capitalize',
         },
-        activeTintColor: '#192a56',
-        indicatorStyle: {backgroundColor: '#192a56'},
+        activeTintColor: colors.utama,
+        indicatorStyle: {backgroundColor: colors.utama},
         pressColor: colors.kedua,
       }}
-      swipeEnabled={false}>
+      swipeEnabled={true}>
       <Tab.Screen name="Warga Tetap" component={DWTetap} />
       <Tab.Screen name="Warga Sementara" component={DWSementara} />
     </Tab.Navigator>
