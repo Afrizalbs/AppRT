@@ -2,12 +2,31 @@ import React, {useState} from 'react';
 import {useForm, Controller} from 'react-hook-form';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Button, Header, Input} from '../../components';
+import {Firebase} from '../../config';
 import {colors} from '../../config/colors';
 
 const TambahWargaSementara = ({navigation}) => {
   const {handleSubmit, control, errors, reset} = useForm();
+  const resetForm = () => {
+    reset({
+      fullName: '',
+      gender: null,
+      address: '',
+      addressNow: '',
+      phoneNumber: '',
+      job: '',
+      relationship: null,
+    });
+  };
   const onSubmit = (data) => {
-    console.log('data: ', data);
+    Firebase.database()
+      .ref('warga/' + 'sementara/')
+      .push(data)
+      .then(() => {
+        resetForm();
+        navigation.reset({index: 0, routes: [{name: 'Home'}]});
+      });
+    // console.log('data: ', data);
   };
 
   // console.log('err: ', errors);
@@ -62,7 +81,7 @@ const TambahWargaSementara = ({navigation}) => {
         <Text style={styles.title}>Data Warga Sementara</Text>
         <View style={styles.gap(40)} />
         <Controller
-          name="fullName"
+          name={'fullName'}
           control={control}
           rules={{
             required: {value: true, message: 'Name is required'},
@@ -81,7 +100,7 @@ const TambahWargaSementara = ({navigation}) => {
         )}
         <View style={styles.gap(25)} />
         <Controller
-          name="gender"
+          name={'gender'}
           control={control}
           defaultValue=""
           render={({onChange, value}) => (
@@ -96,7 +115,7 @@ const TambahWargaSementara = ({navigation}) => {
         />
         <View style={styles.gap(25)} />
         <Controller
-          name="address"
+          name={'address'}
           control={control}
           rules={{
             required: {value: true, message: 'Address is required'},
@@ -115,7 +134,7 @@ const TambahWargaSementara = ({navigation}) => {
         )}
         <View style={styles.gap(25)} />
         <Controller
-          name="addressNow"
+          name={'addressNow'}
           control={control}
           rules={{
             required: {value: true, message: 'Address is required'},
@@ -134,7 +153,7 @@ const TambahWargaSementara = ({navigation}) => {
         )}
         <View style={styles.gap(25)} />
         <Controller
-          name="phoneNumber"
+          name={'phoneNumber'}
           control={control}
           rules={{
             required: {value: true, message: 'phone number is required'},
@@ -154,7 +173,7 @@ const TambahWargaSementara = ({navigation}) => {
         )}
         <View style={styles.gap(25)} />
         <Controller
-          name="job"
+          name={'job'}
           control={control}
           rules={{
             required: {value: true, message: 'job is required'},
@@ -173,7 +192,7 @@ const TambahWargaSementara = ({navigation}) => {
         )}
         <View style={styles.gap(25)} />
         <Controller
-          name="relationship"
+          name={'relationship'}
           control={control}
           defaultValue=""
           render={({onChange, value}) => (
@@ -188,21 +207,6 @@ const TambahWargaSementara = ({navigation}) => {
         />
         <View style={styles.gap(40)} />
         <Button label="Tambah" onPress={handleSubmit(onSubmit)} />
-        <View style={styles.gap(25)} />
-        <Button
-          label="Reset"
-          onPress={() => {
-            reset({
-              fullName: '',
-              gender: null,
-              address: '',
-              addressNow: '',
-              phoneNumber: '',
-              job: '',
-              relationship: null,
-            });
-          }}
-        />
         <View style={styles.gap(40)} />
       </ScrollView>
     </View>

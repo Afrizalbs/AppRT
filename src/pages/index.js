@@ -6,6 +6,7 @@ import DWSementara from './DWSementara';
 import DWTetap from './DWTetap';
 import TambahWargaSementara from './TambahWargaSementara';
 import DetailProfile from './DetailProfile';
+import DetailProfile2 from './DetailProfile2';
 
 export {
   Splash,
@@ -16,4 +17,5 @@ export {
   DWTetap,
   TambahWargaSementara,
   DetailProfile,
+  DetailProfile2,
 };
