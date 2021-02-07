@@ -5,6 +5,7 @@ import {StyleSheet} from 'react-native';
 import {colors} from '../config/colors';
 import {
   DetailProfile,
+  DetailProfile2,
   Home,
   OnBoarding,
   Splash,
@@ -18,7 +19,6 @@ const Drawer = createDrawerNavigator();
 const MainApp = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="Home"
       drawerStyle={styles.drawer}
       drawerContentOptions={{
         activeTintColor: colors.kedua,
@@ -39,11 +39,12 @@ const MainApp = () => {
 
 const Router = () => {
   return (
-    <Stack.Navigator headerMode="none" initialRouteName="MainApp">
+    <Stack.Navigator headerMode="none" initialRouteName="Splashscreen">
       <Stack.Screen name="Splashscreen" component={Splash} />
       <Stack.Screen name="OnBoarding" component={OnBoarding} />
       <Stack.Screen name="MainApp" component={MainApp} />
       <Stack.Screen name="Detail" component={DetailProfile} />
+      <Stack.Screen name="Detail2" component={DetailProfile2} />
     </Stack.Navigator>
   );
 };
