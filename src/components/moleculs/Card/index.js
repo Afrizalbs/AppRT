@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
   },
   alamat: {
-    fontSize: 14,
-    color: colors.text.utama,
+    fontSize: 12,
+    color: colors.text.ketiga,
   },
   icon: {
     height: 24,

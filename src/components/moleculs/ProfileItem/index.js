@@ -21,13 +21,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   label: {
-    color: colors.kedua,
+    color: colors.utama,
     fontSize: 14,
-    fontWeight: '700',
   },
   desc: {
     color: colors.text.utama,
     fontSize: 16,
     marginTop: 6,
+    textTransform: 'capitalize',
   },
 });
