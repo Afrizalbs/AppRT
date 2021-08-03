@@ -22,57 +22,27 @@ Splashscreen 👇            |  Onboarding Screen 👇
 :-------------------------:|:-------------------------:
 ![Splashscreen Version](./splashscreen.jpg)  |  ![Onboarding Screen](./onboarding.jpg)
 
-Splashscreen 👇
 
-![Splashscreen Version](./splashscreen.jpg)
+Home Screen 👇           |  Sidebar 👇
+:-------------------------:|:-------------------------:
+![Home Screen](./home.jpg)  |  ![Sidebar ](./sidebar.jpg)
 
-Onboarding Screen 👇
 
-![Onboarding Screen](./onboarding.jpg)
-
-Home Screen 👇
-
-![Home Screen](./home.jpg)
-
-Sidebar 👇
-
-![Sidebar ](./sidebar.jpg)
-
-Detail Screen 👇
-
-![Detail Screen](./detailscreen.jpg)
-
-Tambah Data Screen 👇
-
-![Tambah Data Screen](./add.jpg)
+Detail Screen 👇          |  Tambah Data Screen 👇
+:-------------------------:|:-------------------------:
+![Detail Screen](./detailscreen.jpg)  |  ![Tambah Data Screen](./add.jpg)
 
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS
-- Flexbox
-
-### What I learned
-
-Saya belajar menggunakan fungsi css yaitu flexbox untuk mengatur layout dari desain project
-
-here the code snippets, see below:
-
-```css
-.pages {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-```
+- React Native 0.63.4
+- React Navigation
+- React Hook Form
+- Firebase (for Database)
 
 ## Author
 
 - Website - [Soon](https://github.com/Afrizalbs) 🔜
-- Frontend Mentor - [@Afrizalbs](https://www.frontendmentor.io/profile/Afrizalbs)
 - Twitter - [@afrizalbagas](https://twitter.com/afrizalbagas)
