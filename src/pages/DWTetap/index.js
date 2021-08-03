@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import {Card} from '../../components';
 import {Firebase} from '../../config';
 
@@ -22,22 +22,9 @@ const DWTetap = ({navigation}) => {
           setDataWarga(data);
         }
       });
-    // .then((res) => {
-    //   if (res.val()) {
-    //     const oldData = res.val();
-    //     const data = [];
-    //     Object.keys(oldData).map((key) => {
-    //       data.push({
-    //         id: key,
-    //         data: oldData[key],
-    //       });
-    //     });
-    //     setDataWarga(data);
-    //   }
-    // });
   }, []);
   return (
-    <View style={styles.page}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.page}>
       {dataWarga.map((warga) => {
         return (
           <Card
@@ -48,7 +35,7 @@ const DWTetap = ({navigation}) => {
           />
         );
       })}
-    </View>
+    </ScrollView>
   );
 };
 
