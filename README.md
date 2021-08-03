@@ -18,6 +18,10 @@ Aplikasi CRUD Sederhana Pendataan Warga RT
 
 Here the result of my project
 
+Splashscreen 👇            |  Onboarding Screen 👇
+:-------------------------:|:-------------------------:
+![Splashscreen Version](./splashscreen.jpg)  |  ![Onboarding Screen](./onboarding.jpg)
+
 Splashscreen 👇
 
 ![Splashscreen Version](./splashscreen.jpg)
