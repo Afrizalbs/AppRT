@@ -1,28 +1,18 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {Button as ButtonPaper} from 'react-native-paper';
 import {colors} from '../../../config/colors';
 
-const Button = ({onPress, label}) => {
+const Button = ({onPress, label, icon, disabled}) => {
   return (
-    <TouchableOpacity style={styles.wrapper} onPress={onPress}>
-      <Text style={styles.label}>{label}</Text>
-    </TouchableOpacity>
+    <ButtonPaper
+      icon={icon}
+      mode="contained"
+      color={colors.primary}
+      onPress={onPress}
+      disabled={disabled}>
+      {label}
+    </ButtonPaper>
   );
 };
 
 export default Button;
-
-const styles = StyleSheet.create({
-  wrapper: {
-    backgroundColor: colors.kedua,
-    height: 45,
-    borderRadius: 10,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  label: {
-    fontSize: 18,
-    color: colors.text.utama,
-  },
-});
