@@ -1,8 +1,8 @@
 import React from 'react';
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {Picker} from '@react-native-community/picker';
+import {TextInput as InputPaper} from 'react-native-paper';
 import {colors} from '../../../config/colors';
-import {useState} from 'react';
 
 const Input = ({
   select,
@@ -13,14 +13,8 @@ const Input = ({
   selectItem,
   selectedValue,
   keyboardType,
+  secureTextEntry,
 }) => {
-  const [border, setBorder] = useState('silver');
-  const onFocusForm = () => {
-    setBorder(colors.kedua);
-  };
-  const onBlurForm = () => {
-    setBorder('silver');
-  };
   if (select) {
     return (
       <View>
@@ -43,14 +37,15 @@ const Input = ({
   }
   return (
     <>
-      <Text style={styles.label}>{label}</Text>
-      <TextInput
-        style={styles.input(border)}
-        onFocus={onFocusForm}
-        onBlur={onBlurForm}
-        keyboardType={keyboardType}
-        onChangeText={onChangeText}
+      <InputPaper
+        label={label}
         value={value}
+        onChangeText={onChangeText}
+        mode="outlined"
+        keyboardType={keyboardType}
+        style={styles.input}
+        activeOutlineColor={colors.primary}
+        secureTextEntry={secureTextEntry}
       />
     </>
   );
@@ -59,24 +54,19 @@ const Input = ({
 export default Input;
 
 const styles = StyleSheet.create({
-  input: (border) => ({
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: border,
-    padding: 11,
-    fontSize: 15,
-    color: colors.text.utama,
-  }),
+  input: {
+    backgroundColor: colors.white,
+  },
   picker: {
     borderWidth: 1,
-    borderColor: 'silver',
-    borderRadius: 10,
+    borderColor: colors.text.primary,
+    borderRadius: 5,
     paddingHorizontal: 4,
-    color: colors.text.utama,
+    color: colors.text.primary,
   },
   label: {
     fontSize: 16,
-    color: colors.text.utama,
+    color: colors.text.primary,
     marginBottom: 4,
   },
 });
