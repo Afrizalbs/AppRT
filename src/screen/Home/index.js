@@ -1,10 +1,8 @@
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Header} from '../../components';
+import {StyleSheet, Text, View} from 'react-native';
+import {WargaSementara, WargaTetap} from '..';
 import {colors} from '../../config/colors';
-import DWSementara from '../DWSementara';
-import DWTetap from '../DWTetap';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -22,8 +20,8 @@ const TabScreen = () => {
         pressColor: colors.kedua,
       }}
       swipeEnabled={true}>
-      <Tab.Screen name="Warga Tetap" component={DWTetap} />
-      <Tab.Screen name="Warga Sementara" component={DWSementara} />
+      <Tab.Screen name="Warga Tetap" component={WargaTetap} />
+      <Tab.Screen name="Warga Sementara" component={WargaSementara} />
     </Tab.Navigator>
   );
 };
@@ -31,9 +29,8 @@ const TabScreen = () => {
 const Home = ({navigation}) => {
   return (
     <View style={styles.page}>
-      <Header onPress={() => navigation.openDrawer()} />
       <View style={styles.content}>
-        <TabScreen />
+        <Text>Kategori</Text>
       </View>
     </View>
   );
@@ -44,7 +41,6 @@ export default Home;
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    backgroundColor: colors.ketiga,
   },
   title: {
     fontSize: 20,
@@ -54,8 +50,7 @@ const styles = StyleSheet.create({
     color: colors.utama,
   },
   content: {
-    backgroundColor: colors.ketiga,
+    backgroundColor: colors.white,
     flex: 1,
-    marginTop: -20,
   },
 });

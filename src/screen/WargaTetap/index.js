@@ -4,7 +4,7 @@ import {ScrollView, StyleSheet} from 'react-native';
 import {Card} from '../../components';
 import {Firebase} from '../../config';
 
-const DWTetap = ({navigation}) => {
+const WargaTetap = ({navigation}) => {
   const [dataWarga, setDataWarga] = useState([]);
   useEffect(() => {
     Firebase.database()
@@ -31,7 +31,7 @@ const DWTetap = ({navigation}) => {
             key={warga.id}
             nama={warga.data.fullName}
             alamat={warga.data.addressNow}
-            onPress={() => navigation.navigate('Detail', warga)}
+            onPress={() => navigation.navigate('DetailWargaTetap', warga)}
           />
         );
       })}
@@ -39,7 +39,7 @@ const DWTetap = ({navigation}) => {
   );
 };
 
-export default DWTetap;
+export default WargaTetap;
 
 const styles = StyleSheet.create({
   page: {

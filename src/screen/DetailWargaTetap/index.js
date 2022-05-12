@@ -3,7 +3,7 @@ import {ScrollView, StyleSheet, View, Alert} from 'react-native';
 import {Button, Header, ProfileItem} from '../../components';
 import {Firebase} from '../../config';
 
-const DetailProfile = ({navigation, route}) => {
+const DetailWargaTetap = ({navigation, route}) => {
   const dataWarga = route.params;
 
   const deleteData = () => {
@@ -61,7 +61,7 @@ const DetailProfile = ({navigation, route}) => {
   );
 };
 
-export default DetailProfile;
+export default DetailWargaTetap;
 
 const styles = StyleSheet.create({
   pages: {

@@ -5,10 +5,10 @@ import {ILAvoidContact, ILMasker, ILWashHand} from '../../assets';
 
 const OnBoarding = ({navigation}) => {
   const skip = () => {
-    navigation.replace('MainApp');
+    navigation.replace('LoginScreen');
   };
   const done = () => {
-    navigation.replace('MainApp');
+    navigation.replace('LoginScreen');
   };
 
   return (

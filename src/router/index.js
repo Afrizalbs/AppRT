@@ -4,14 +4,16 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {colors} from '../config/colors';
 import {
-  DetailProfile,
-  DetailProfile2,
+  DetailWargaSementara,
+  DetailWargaTetap,
   Home,
+  LoginScreen,
   OnBoarding,
+  RegistrasiScreen,
   Splash,
   TambahData,
   TambahWargaSementara,
-} from '../pages';
+} from '../screen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -39,12 +41,18 @@ const MainApp = () => {
 
 const Router = () => {
   return (
-    <Stack.Navigator headerMode="none" initialRouteName="Splashscreen">
-      <Stack.Screen name="Splashscreen" component={Splash} />
+    <Stack.Navigator headerMode="none" initialRouteName="LoginScreen">
+      <Stack.Screen name="SplashScreen" component={Splash} />
       <Stack.Screen name="OnBoarding" component={OnBoarding} />
+      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="RegistrasiScreen" component={RegistrasiScreen} />
+      <Stack.Screen name="CreateDataScreen" component={TambahData} />
       <Stack.Screen name="MainApp" component={MainApp} />
-      <Stack.Screen name="Detail" component={DetailProfile} />
-      <Stack.Screen name="Detail2" component={DetailProfile2} />
+      <Stack.Screen name="DetailWargaTetap" component={DetailWargaTetap} />
+      <Stack.Screen
+        name="DetailWargaSementara"
+        component={DetailWargaSementara}
+      />
     </Stack.Navigator>
   );
 };

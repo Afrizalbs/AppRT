@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {useForm, Controller} from 'react-hook-form';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View, Alert} from 'react-native';
 import {Button, Header, Input} from '../../components';
 import {Firebase} from '../../config';
 import {colors} from '../../config/colors';
 
-const TambahWargaSementara = ({navigation}) => {
+const TambahData = ({navigation}) => {
   const {handleSubmit, control, errors, reset} = useForm();
   const resetForm = () => {
     reset({
@@ -18,18 +18,18 @@ const TambahWargaSementara = ({navigation}) => {
       relationship: null,
     });
   };
-  const onSubmit = (data) => {
-    Firebase.database()
-      .ref('warga/' + 'sementara/')
-      .push(data)
-      .then(() => {
-        resetForm();
-        navigation.reset({index: 0, routes: [{name: 'Home'}]});
-      });
-    // console.log('data: ', data);
+  const onSubmit = () => {
+    // Alert.alert('submit data');
+    navigation.navigate('MainApp');
+    // Firebase.database()
+    //   .ref('warga/' + 'tetap/')
+    //   .push(data)
+    //   .then(() => {
+    //     resetForm();
+    //     navigation.reset({index: 0, routes: [{name: 'Home'}]});
+    //   });
   };
 
-  // console.log('err: ', errors);
   const [itemGender] = useState([
     {
       id: 1,
@@ -72,14 +72,9 @@ const TambahWargaSementara = ({navigation}) => {
 
   return (
     <View style={styles.page}>
-      <Header
-        type="Secondary"
-        label="tambah data"
-        onPress={() => navigation.openDrawer()}
-      />
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
-        <Text style={styles.title}>Data Warga Sementara</Text>
-        <View style={styles.gap(40)} />
+        <Text style={styles.title}>Tambah Data Anda</Text>
+        <View style={styles.gap(20)} />
         <Controller
           name={'fullName'}
           control={control}
@@ -89,7 +84,7 @@ const TambahWargaSementara = ({navigation}) => {
           defaultValue=""
           render={({onChange, value}) => (
             <Input
-              label="Nama Lengkap sesuai KTP"
+              label="Nama Lengkap"
               onChangeText={(v) => onChange(v)}
               value={value}
             />
@@ -123,7 +118,7 @@ const TambahWargaSementara = ({navigation}) => {
           defaultValue=""
           render={({onChange, value}) => (
             <Input
-              label="Alamat asal sesuai KTP"
+              label="Alamat KTP"
               onChangeText={(v) => onChange(v)}
               value={value}
             />
@@ -213,7 +208,7 @@ const TambahWargaSementara = ({navigation}) => {
   );
 };
 
-export default TambahWargaSementara;
+export default TambahData;
 
 const styles = StyleSheet.create({
   page: {
@@ -231,6 +226,6 @@ const styles = StyleSheet.create({
   },
   errorText: {
     fontSize: 11,
-    color: colors.utama,
+    color: colors.text.error,
   },
 });

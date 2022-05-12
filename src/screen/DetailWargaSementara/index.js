@@ -3,7 +3,7 @@ import {ScrollView, StyleSheet, View, Alert} from 'react-native';
 import {Button, Header, ProfileItem} from '../../components';
 import {Firebase} from '../../config';
 
-const DetailProfile2 = ({navigation, route}) => {
+const DetailWargaSementara = ({navigation, route}) => {
   const dataWarga = route.params;
   console.log('data: ', dataWarga);
 
@@ -62,7 +62,7 @@ const DetailProfile2 = ({navigation, route}) => {
   );
 };
 
-export default DetailProfile2;
+export default DetailWargaSementara;
 
 const styles = StyleSheet.create({
   pages: {
